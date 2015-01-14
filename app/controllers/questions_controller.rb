@@ -7,9 +7,11 @@ class QuestionsController < ApplicationController
 
   def show
     set_question
+    @answer = Answer.new
   end
 
   def new
+    @question = Question.new
   end
 
   def edit

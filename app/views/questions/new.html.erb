@@ -1,0 +1,15 @@
+<%= form_for(@question) do |f| %>
+
+<%= f.label :title %>
+<%= f.text_field :title %>
+<br>
+<br>
+<%= f.label :content %>
+<br>
+<%= f.text_field :content, size: 20 %>
+<br>
+<!-- TAGS STUFF GOES HERE -->
+<br>
+<%= f.submit "Post Your Question" %>
+
+<% end %>
