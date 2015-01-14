@@ -1,3 +1,4 @@
+ruby '2.0.0'
 source 'https://rubygems.org'
 
 
@@ -29,14 +30,17 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# Use unicorn as the app server
-gem 'unicorn'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'rspec-rails', group: [:development, :test]
-gem 'rails_12factor', group: [:production]
+gem 'simplecov', group: [:development, :test]
+gem 'rails_12factor'
+
+group :production do
+  gem 'unicorn'
+  gem 'newrelic_rpm'
+end
 
