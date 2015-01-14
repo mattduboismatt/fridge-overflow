@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   resources :tags, only: [:index, :create, :show]
   resources :taggings, only: [:create, :destroy]
 
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
