@@ -1,1 +1,4 @@
 <h1>FRIDGE OVERFLOW</h1>
+<% @questions.each do |quest|%>
+<li><%= link_to quest.title, quest %></li>
+<% end %>

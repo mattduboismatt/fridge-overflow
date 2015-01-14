@@ -4,6 +4,13 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'questions#index'
+  resources :users
+  resources :questions
+  resources :answers, only: [:create, :destroy, :edit, :udpate]
+  resources :responses
+  resources :votes, only: [:create, :destroy]
+  resources :tags, only: [:index, :create, :show]
+  resources :taggings, only: [:create, :destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

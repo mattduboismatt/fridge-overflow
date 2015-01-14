@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150114172708) do
 
   create_table "questions", force: true do |t|
     t.string   "title"
+    t.string   "slug"
     t.text     "content"
     t.integer  "visit_count"
     t.integer  "user_id"
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(version: 20150114172708) do
 
   create_table "users", force: true do |t|
     t.string   "username"
+    t.string   "slug"
     t.string   "email"
     t.string   "password_digest"
     t.string   "website"
