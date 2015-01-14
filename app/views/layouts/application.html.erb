@@ -9,6 +9,7 @@
 <body>
   <div id='header'>
     <ul>
+        <li id='home-page-link'><%= link_to "Fridge Overflow", root_path %></li>
       <% if logged_in? %>
         <li><%= link_to "Logout", logout_path, method: :delete %></li>
         <li><%= link_to "Profile", user_path(current_user.id) %></li>
