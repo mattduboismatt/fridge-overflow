@@ -1,2 +1,13 @@
-<h1><%= @question.title %></h2>
-  <p><%= @question.content%></p>
+<h2><%= @question.title %></h2>
+<p><%= @question.content%></p>
+<h4>Your Answer</h4>
+
+<%= form_for(@answer) do |f| %>
+
+<%= f.label :content %>
+<br>
+<%= f.text_field :content, size: 20 %>
+<br>
+<%= f.submit "Post Your Answer" %>
+
+<% end %>

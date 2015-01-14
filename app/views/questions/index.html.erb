@@ -1,4 +1,11 @@
 <h1>FRIDGE OVERFLOW</h1>
+
+<hr>
+
+<%= link_to 'Ask Question', new_question_path %>
+
+<hr>
+
 <% @questions.each do |quest|%>
 <li><%= link_to quest.title, quest %></li>
 <% end %>
