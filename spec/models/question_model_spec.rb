@@ -1,4 +1,4 @@
-describe 'User' do
+describe 'Question' do
 
   let(:question) { Question.create!(
                                     title: 'example',
