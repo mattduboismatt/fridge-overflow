@@ -6,18 +6,19 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    set_question
     @answer = Answer.new
   end
 
   def new
     @question = Question.new
+    @taggings = Taggings.new
   end
 
   def edit
   end
 
   def create
+
   end
 
   def update
