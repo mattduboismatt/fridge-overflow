@@ -7,5 +7,5 @@
 <hr>
 
 <% @questions.each do |quest|%>
-<li><%= link_to quest.title, quest %></li>
+<li><%= quest.created_at%><%= link_to quest.title, quest %></li>
 <% end %>

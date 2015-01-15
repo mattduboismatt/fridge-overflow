@@ -8,3 +8,6 @@
   10. times do
     Question.create!(title: "random", content: "jargon")
   end
+  5. times do
+    Answer.create!(content: "ASFASFASFASFASFASFAS", user_id: 1, question_id: 1)
+  end

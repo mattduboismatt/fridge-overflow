@@ -1,12 +1,17 @@
 <h2><%= @question.title %></h2>
 <p><%= @question.content%></p>
+<h4>Answers</h4>
+<% @question.answers.each do |ans| %>
+  <p><%= ans.created_at%><%= ans.content %></p>
+<% end %>
+
 <h4>Your Answer</h4>
 
 <%= form_for(@answer) do |f| %>
 
 <%= f.label :content %>
 <br>
-<%= f.text_field :content, size: 20 %>
+<%= f.text_field :content, size: 200 %>
 <br>
 <%= f.submit "Post Your Answer" %>
 
