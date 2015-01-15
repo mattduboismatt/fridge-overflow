@@ -40,3 +40,25 @@
 .flash p{
   color: red;
 }
+
+.short-column {
+  width: 5%;
+}
+
+.long-column {
+  width: 30%;
+}
+
+.center {
+  text-align: center;
+}
+
+th {
+  border: 1px solid black;
+  margin: 0px;
+}
+
+
+
+
+
