@@ -1,25 +1,19 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_to_root, unless: :'logged_in?', only: [:new]
 
   def index
     @questions = Question.all
   end
 
   def show
-    @question.visit_count += 1
-    @question.save
+    @question.increment_visit_count
     @answer = Answer.new
   end
 
   def new
-    if logged_in?
-      @question = Question.new
-      @tagging = Tagging.new
-      render :new
-    else
-      flash[:notice] = 'Must be logged in to post a question'
-      redirect_to root_path
-    end
+    @question = Question.new
+    @tagging = Tagging.new
   end
 
   def edit
@@ -32,7 +26,7 @@ class QuestionsController < ApplicationController
       redirect_to question_path(@question)
     else
       flash[:notice] = 'Question not posted'
-      redirect_to root_path
+      render :new
     end
   end
 
@@ -50,6 +44,15 @@ class QuestionsController < ApplicationController
 
   def question_params
       params.require(:question).permit(:title, :content, :tag_names)
+  end
+
+  def redirect_to_root
+    redirect_to root_path
+    flash[:notice] = 'Must be logged in to post a question'
+  end
+
+  def increment_visit_count
+    self.update_attribute(:visit_count, self.visit_count + 1)
   end
 
 end

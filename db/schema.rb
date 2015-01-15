@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114172708) do
+ActiveRecord::Schema.define(version: 20150115221303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(version: 20150114172708) do
     t.datetime "updated_at"
   end
 
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+  add_index "answers", ["user_id", "question_id"], name: "index_answers_on_user_id_and_question_id", using: :btree
+
   create_table "questions", force: true do |t|
     t.string   "title"
     t.string   "slug"
@@ -33,6 +36,8 @@ ActiveRecord::Schema.define(version: 20150114172708) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
   create_table "responses", force: true do |t|
     t.text     "content"
@@ -44,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150114172708) do
   end
 
   add_index "responses", ["responsive_id", "responsive_type"], name: "index_responses_on_responsive_id_and_responsive_type", using: :btree
+  add_index "responses", ["user_id", "responsive_id"], name: "index_responses_on_user_id_and_responsive_id", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "question_id"
@@ -51,6 +57,9 @@ ActiveRecord::Schema.define(version: 20150114172708) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "taggings", ["question_id", "tag_id"], name: "index_taggings_on_question_id_and_tag_id", using: :btree
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
 
   create_table "tags", force: true do |t|
     t.string   "name"
@@ -81,6 +90,7 @@ ActiveRecord::Schema.define(version: 20150114172708) do
     t.datetime "updated_at"
   end
 
+  add_index "votes", ["user_id", "votable_id"], name: "index_votes_on_user_id_and_votable_id", using: :btree
   add_index "votes", ["votable_id", "votable_type"], name: "index_votes_on_votable_id_and_votable_type", using: :btree
 
 end

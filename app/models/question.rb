@@ -1,3 +1,5 @@
+include ApplicationHelper
+
 class Question < ActiveRecord::Base
   before_create :set_defaults
 
@@ -22,14 +24,15 @@ class Question < ActiveRecord::Base
   end
 
 
-  def created_at_formatted
-    self.created_at.strftime("%m/%d/%Y at %I:%M%p")
+  def increment_visit_count
+    self.update_attribute(:visit_count, self.visit_count + 1)
   end
+
 
   private
   def set_defaults
-    self.slug = self.title.downcase.gsub(/[^a-z0-9\s]/i, '').split(' ').join('-')
-    self.visit_count = 0
+    self.slug ||= self.title.downcase.gsub(/[^a-z0-9\s]/i, '').split(' ').join('-')
+    self.visit_count ||= 0
   end
 
 end

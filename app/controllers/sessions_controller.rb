@@ -17,10 +17,15 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    @_current_user = session[:user_id] = nil
+    logout
     flash[:notice] = "Come back soon"
     redirect_to questions_path
   end
 
+  private
+  def logout
+    @_current_user = nil
+    session[:user_id] = nil
+  end
 
 end

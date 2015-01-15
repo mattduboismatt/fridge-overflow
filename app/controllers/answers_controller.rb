@@ -1,5 +1,4 @@
 class AnswersController < ApplicationController
-  # before_action :set_answer
 
   def create
     @answer = Answer.new(answer_params)
@@ -21,12 +20,6 @@ class AnswersController < ApplicationController
   end
 
   private
-
-  # def set_answer
-  #   @answer = Answer.find(params[:id])
-  # end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
   def answer_params
     params.require(:answer).permit(:content, :question_id)
   end
