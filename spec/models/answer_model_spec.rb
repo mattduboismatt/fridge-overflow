@@ -3,7 +3,7 @@ describe 'Answer' do
   let(:answer) { Answer.create!(
                                 content: 'example@test.com'
                                 )}
-ß
+
   it 'should have content attribute' do
     expect(answer.content).to eq('example@test.com')
   end
