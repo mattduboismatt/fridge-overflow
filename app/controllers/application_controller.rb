@@ -17,4 +17,9 @@ class ApplicationController < ActionController::Base
   end
   helper_method :logged_in?
 
+  def sluggarize(string)
+    string.downcase.gsub(/[^a-z0-9\s]/i, '').split(' ').join('-')
+  end
+  helper_method :sluggarize
+
 end
