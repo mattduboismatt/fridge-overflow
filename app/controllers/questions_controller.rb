@@ -6,18 +6,32 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    set_question
     @answer = Answer.new
   end
 
   def new
-    @question = Question.new
+    if logged_in?
+      @question = Question.new
+      @tagging = Tagging.new
+      render :new
+    else
+      flash[:notice] = 'Must be logged in to post a question'
+      redirect_to root_path
+    end
   end
 
   def edit
   end
 
   def create
+    @question = Question.new(question_params)
+    @question.user = current_user
+    if @question.save
+      redirect_to question_path(@question)
+    else
+      flash[:notice] = 'Question not posted'
+      redirect_to root_path
+    end
   end
 
   def update
@@ -30,6 +44,10 @@ class QuestionsController < ApplicationController
 
   def set_question
     @question = Question.find(params[:id])
+  end
+
+  def question_params
+      params.require(:question).permit(:title, :content, :tag_names)
   end
 
 end

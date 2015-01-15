@@ -1,15 +1,5 @@
-<%= form_for(@question) do |f| %>
+<h1 class='question_header'>Post Your Question</h1>
 
-<%= f.label :title %>
-<%= f.text_field :title %>
-<br>
-<br>
-<%= f.label :content %>
-<br>
-<%= f.text_field :content, size: 2000 %>
-<br>
-<!-- TAGS STUFF GOES HERE -->
-<br>
-<%= f.submit "Post Your Question" %>
+<%= render 'form' %><br>
 
-<% end %>
+<%= link_to 'Back', root_path %>
