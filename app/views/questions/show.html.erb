@@ -1,18 +1,33 @@
+<!-- Question Content -->
 <h2><%= @question.title %></h2>
 <p><%= @question.content%></p>
-<h4>Answers</h4>
-<% @question.answers.each do |ans| %>
-  <p><%= ans.created_at%><%= ans.content %></p>
-<% end %>
+<!-- Question: Add Comment -->
+<a id="addComment" href="/organizations/new">add a comment</a>
 
+<%= form_for([ans, ans.comments.build], remote: true) do |f| %>
+
+<!-- Question's Answers -->
+<h4>Answers</h4>
+<ul>
+<% @question.answers.each do |ans| %>
+  <li>
+  <%= ans.created_at%><%= ans.content %> - <%= ans.user %>
+  <br>
+  </li>
+<% end %>
+</ul>
+<!-- Create A New Answer -->
 <h4>Your Answer</h4>
 
 <%= form_for(@answer) do |f| %>
+
+<%= f.hidden_field :question_id, value: @question.id %>
 
 <%= f.label :content %>
 <br>
 <%= f.text_field :content, size: 200 %>
 <br>
+
 <%= f.submit "Post Your Answer" %>
 
 <% end %>
