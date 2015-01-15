@@ -6,6 +6,8 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @question.visit_count += 1
+    @question.save
     @answer = Answer.new
   end
 

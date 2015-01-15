@@ -5,9 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+u = User.create!(username: 'i eat off the floor', email: 'gross@example.com', password: 'test')
+
   10. times do
-    Question.create!(title: "random", content: "jargon")
+    Question.create!(title: "random", content: "jargon", user: u)
   end
   5. times do
-    Answer.create!(content: "ASFASFASFASFASFASFAS", user_id: 1, question_id: 1)
+    Answer.create!(content: "ASFASFASFASFASFASFAS", user: u, question_id: 1)
   end
