@@ -1,11 +1,8 @@
-<h1>FRIDGE OVERFLOW</h1>
+<h1>FRIDGE OVERFLOW</h1><hr>
+<%= link_to 'Ask Question', new_question_path %><hr>
 
-<hr>
 
-<%= link_to 'Ask Question', new_question_path %>
 
-<hr>
+<% @questions.each do |question|%>
 
-<% @questions.each do |quest|%>
-<li><%= quest.created_at%><%= link_to quest.title, quest %></li>
 <% end %>
