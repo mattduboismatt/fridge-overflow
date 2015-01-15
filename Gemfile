@@ -43,4 +43,4 @@ group :production do
   gem 'unicorn'
   gem 'newrelic_rpm'
 end
-
+gem 'shoulda-matchers', require: false, group: [:test]
