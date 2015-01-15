@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   def set_defaults
-    self.slug = self.username.downcase.gsub(/[^a-z0-9\s]/i, '').split(' ').join('-')
+    self.slug ||= self.username.downcase.gsub(/[^a-z0-9\s]/i, '').split(' ').join('-')
   end
 
 end
