@@ -1,6 +1,14 @@
 <h1>FRIDGE OVERFLOW</h1><hr>
 <%= link_to 'Ask Question', new_question_path %><hr>
 
+<table>
+  <thead>
+    <th class='short'>Votes</th>
+    <th class='short'>Answers</th>
+    <th class='short'>Views</th>
+    <th class='long'>Views</th>
+  </thead>
+</table>
 
 <ul>
 <% @questions.each do |question|%>
