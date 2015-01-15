@@ -1,9 +1,22 @@
 <h1>FRIDGE OVERFLOW</h1><hr>
 <%= link_to 'Ask Question', new_question_path %><hr>
 
+<table id='question_index'>
+  <thead>
+    <th class='short-column'>Votes</th>
+    <th class='short-column'>Answers</th>
+    <th class='short-column'>Views</th>
+    <th class='long-column'><%= link_to "Highest-Voted" %> --- <%= link_to "Most Recent" %> --- <%= link_to "Trending" %></th>
+  </thead>
+  <tbody>
+    <% @questions.each do |question|%>
+      <tr>
+        <td class='center'><%= question.votes.count %></td>
+        <td class='center'><%= question.answers.count %></td>
+        <td class='center'><%= question.visit_count %></td>
+        <td class='big'><%= link_to question.title, question %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<ul>
-<% @questions.each do |question|%>
-  <li><%= link_to question.title, question %></li>
-<% end %>
-</ul>

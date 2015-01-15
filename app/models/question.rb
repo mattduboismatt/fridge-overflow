@@ -1,4 +1,6 @@
 class Question < ActiveRecord::Base
+  before_create :set_defaults
+
   belongs_to :user
   has_many :answers
   has_one :best_answer, class_name: 'Answer'
@@ -11,16 +13,17 @@ class Question < ActiveRecord::Base
     tags.pluck(:name).join(", ")
   end
 
-  # "dbc, phase-1,   lucas-w, mike-b,lucas-w, wizardry,     watthefuck"
   def tag_names=(tag_names_string)
-    # string
     tag_names = tag_names_string.split(",").map(&:strip).uniq
-    # split into many strings
-    # create associations to this entry
     tags = tag_names.map { |name|
       Tag.find_by(name: name) || Tag.new(name: name)
     }
-
     self.tags = tags
+  end
+
+  private
+  def set_defaults
+    self.slug = self.title.downcase.gsub(/[^a-z0-9\s]/i, '').split(' ').join('-')
+    self.visit_count = 0
   end
 end
