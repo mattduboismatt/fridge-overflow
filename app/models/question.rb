@@ -21,9 +21,15 @@ class Question < ActiveRecord::Base
     self.tags = tags
   end
 
+
+  def created_at_formatted
+    self.created_at.strftime("%m/%d/%Y at %I:%M%p")
+  end
+
   private
   def set_defaults
     self.slug = self.title.downcase.gsub(/[^a-z0-9\s]/i, '').split(' ').join('-')
     self.visit_count = 0
   end
+
 end

@@ -14,7 +14,7 @@
         <td class='center'><%= question.votes.count %></td>
         <td class='center'><%= question.answers.count %></td>
         <td class='center'><%= question.visit_count %></td>
-        <td class='big'><%= link_to question.title, question %></td>
+        <td class='big'><%= link_to question.title, question %><p>Submitted by <%= link_to question.user.username, user_path(question.user) %> on <%= question.created_at_formatted %></td>
       </tr>
     <% end %>
   </tbody>
