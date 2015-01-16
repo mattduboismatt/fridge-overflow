@@ -1,4 +1,4 @@
-describe 'User' do
+describe 'Question' do
 
   let(:question) { Question.create!(
                                     title: 'example',
@@ -25,14 +25,24 @@ describe 'User' do
     expect(question).to have_many(:taggings)
   end
 
-  it 'should have one best answer' do
-    expect(question).to have_one(:best_answer)
-  end
-
   it 'should have many answers' do
     expect(question).to have_many(:answers)
   end
 
+    it 'should have one best_answer' do
+    expect(question).to have_one(:best_answer)
+  end
 
+  it 'should have many tags' do
+    expect(question).to have_many(:tags)
+  end
+
+  it 'should have many votes' do
+    expect(question).to have_many(:votes)
+  end
+
+    it 'should have many responses' do
+    expect(question).to have_many(:responses)
+  end
 
 end

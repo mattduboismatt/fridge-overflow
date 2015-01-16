@@ -1,3 +1,7 @@
+<h1 class='center'><%= @user.username %></h1>
+
+<%= render 'layouts/nav' %>
+
 <h1>Profile</h1>
 <div class='user-form'>
   <p><strong>Username: </strong><%= @user.username %></p>
@@ -8,7 +12,6 @@
   <p><strong>Age: </strong><%= @user.age %></p>
 </div>
 
-<%= link_to 'Back', root_path %> |
 <%= link_to 'Edit profile', edit_user_path(@user) %>
 
 

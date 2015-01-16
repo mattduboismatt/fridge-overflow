@@ -13,13 +13,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def logged_in?
-    current_user != nil
+    !!current_user
   end
   helper_method :logged_in?
-
-  def sluggarize(string)
-    string.downcase.gsub(/[^a-z0-9\s]/i, '').split(' ').join('-')
-  end
-  helper_method :sluggarize
-
 end

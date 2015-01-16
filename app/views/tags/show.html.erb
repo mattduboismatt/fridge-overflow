@@ -1,0 +1,8 @@
+<h1 class='center'><%= @tag.name %></h1>
+
+<%= render 'layouts/nav' %>
+
+<% @tag.questions.each do |q| %>
+  <%= link_to q.title, question_path(q) %>
+<% end %>
+

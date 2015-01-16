@@ -1,7 +1,9 @@
 ruby '2.0.0'
 source 'https://rubygems.org'
 
-
+gem 'pry'
+gem 'strftime'
+gem 'faker'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use postgresql as the database for Active Record

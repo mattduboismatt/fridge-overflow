@@ -40,3 +40,41 @@
 .flash p{
   color: red;
 }
+
+.short-column {
+  width: 5%;
+}
+
+.long-column {
+  width: 30%;
+}
+
+.center {
+  text-align: center;
+}
+
+th {
+  border: 1px solid black;
+  margin: 0px;
+}
+
+
+#nav {
+  text-align: center;
+}
+
+#nav a {
+  text-decoration: none;
+  width: 200px;
+  background-color: grey;
+  padding: 5px 20px;
+  text-align: center;
+  color: white;
+  font-family: courier;
+}
+
+
+
+
+
+

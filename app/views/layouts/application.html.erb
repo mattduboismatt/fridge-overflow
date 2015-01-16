@@ -7,24 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id='header'>
-    <ul>
-        <li id='home-page-link'><%= link_to "Fridge Overflow", root_path %></li>
-      <% if logged_in? %>
-        <li><%= link_to "Logout", logout_path, method: :delete %></li>
-        <li><%= link_to "Profile", user_path(current_user.id) %></li>
-      <% else %>
-        <li><%= link_to "Login", login_path %></li>
-        <li><%= link_to "Register", new_user_path %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% if flash[:notice] %>
-    <div class='flash'>
-      <p><%= flash[:notice] %></p>
-    </div>
-  <% end %>
-
+  <%= render 'layouts/header' %>
+  <%= render 'layouts/flash' %>
 <%= yield %>
 
 </body>

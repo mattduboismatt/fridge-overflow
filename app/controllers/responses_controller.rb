@@ -27,7 +27,6 @@ class ResponsesController < ApplicationController
     end
   end
 
-
   def update
   end
 
@@ -35,8 +34,6 @@ class ResponsesController < ApplicationController
   end
 
   private
-
-
 
   def response_params
     params.require(:response).permit(:content, :responsible_id, :responsible_type, :question_id)
