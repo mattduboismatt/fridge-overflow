@@ -14,16 +14,4 @@ $(document).ready(function() {
 
   // HANDLING VOTING
 
-  $(function () {
-    $('#leftmenu').hide();
-    $('button[name="Menuhide"]').on('click', function () {
-      $('#leftmenu').hide("slide", 1000, function () {
-        $('#leftbutton').show("slide", 1000); }); });
-    $('button[name="menushow"]').on('click', function () {
-      $('#leftbutton').hide("slide", 1000, function () {
-        $('#leftmenu').show("slide", 1000);
-      });
-    });
-  });
-
 });

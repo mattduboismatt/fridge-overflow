@@ -33,6 +33,45 @@ class ResponsesController < ApplicationController
   def destroy
   end
 
+  def upvote
+    @response = Response.find(params[:id])
+
+    @vote = @response.votes.find_or_create_by(user: current_user)
+    @vote.vote_value = 1
+    @vote.save
+
+    # @response.votes.create!(user: current_user, vote_value: 1)
+
+    if @response.responsive.class == Question
+      @responsible = @response.responsive
+    else
+      answer = @response.responsive
+      @responsible = answer.question
+    end
+
+    redirect_to(@responsible)
+  end
+
+  def downvote
+    @response = Response.find(params[:id])
+
+    @vote = @response.votes.find_or_create_by(user: current_user)
+    @vote.vote_value = -1
+    @vote.save
+
+    # @response.votes.create!(user: current_user, vote_value: -1)
+
+
+    if @response.responsive.class == Question
+      @responsible = @response.responsive
+    else
+      answer = @response.responsive
+      @responsible = answer.question
+    end
+
+    redirect_to(@responsible)
+  end
+
   private
 
   def response_params

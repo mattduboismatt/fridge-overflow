@@ -42,6 +42,26 @@ class QuestionsController < ApplicationController
   def destroy
   end
 
+  def upvote
+    @question = Question.find(params[:id])
+
+    @vote = @question.votes.find_or_create_by(user: current_user)
+    @vote.vote_value = 1
+    @vote.save
+
+    redirect_to(@question)
+  end
+
+  def downvote
+    @question = Question.find(params[:id])
+
+    @vote = @question.votes.find_or_create_by(user: current_user)
+    @vote.vote_value = -1
+    @vote.save
+
+    redirect_to(@question)
+  end
+
   private
 
   def set_question

@@ -49,7 +49,6 @@ class Question < ActiveRecord::Base
     self.update_attribute(:visit_count, self.visit_count + 1)
   end
 
-
   private
   def set_defaults
     self.slug ||= self.title.downcase.gsub(/[^a-z0-9\s]/i, '').split(' ').join('-')
