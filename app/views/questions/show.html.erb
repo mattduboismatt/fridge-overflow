@@ -2,6 +2,24 @@
 <h2><%= @question.title %></h2>
 <p><%= @question.content%></p>
 
+<!-- Question: Voting -->
+<div>
+<a href="" class="vote-arrow-up">&#9650</a>
+<a href="" class="vote-arrow-down">&#9660</a>
+</div>
+
+
+<div id='leftmenu' class='leftmenustyle'>
+  This is my div
+  <button id='buttonleft' name='Menuhide'>Hide</button>
+  <br>
+  <a href="prodsearch.php" class="classname3">Back</a>
+</div>
+<div id='leftbutton'>
+  <button name='menushow'></button>
+</div>
+
+
 <!-- Question: Existing Comments -->
 <ul>
 <% @question.responses.each do |response| %>
