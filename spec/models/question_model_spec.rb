@@ -1,12 +1,12 @@
 describe 'Question' do
 
   let(:question) { Question.create!(
-                                    title: 'example',
+                                    title: 'exampleAFAFAAF',
                                     content: 'example@test.com',
                                     visit_count: 100)}
 
   it 'should have a title' do
-    expect(question.title).to eq('example')
+    expect(question.title).to eq('exampleAFAFAAF')
   end
 
   it 'should have email attribute' do

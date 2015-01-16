@@ -55,6 +55,6 @@ respondables += responses
 # create votes for everything that should be voted on
 respondables.each do |item|
   rand(1..5).times do
-    item.votes.create!(user: users.sample)
+    item.votes.create!(user: users.sample, vote_value: [-1,1].sample)
   end
 end

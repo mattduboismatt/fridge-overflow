@@ -1,11 +1,11 @@
 describe 'Tag' do
 
   let(:tag) { Tag.create!(
-                          name: 'example@test.com'
+                          name: 'html'
                           )}
 
   it 'should have name attribute' do
-    expect(tag.name).to eq('example@test.com')
+    expect(tag.name).to eq('html')
   end
 
   it 'should have many taggings' do
