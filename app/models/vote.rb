@@ -7,4 +7,8 @@ class Vote < ActiveRecord::Base
             numericality: true,
             inclusion: { in: [-1,1] }
 
+
+  def self.sum_values
+    self.sum(:vote_value)
+  end
 end

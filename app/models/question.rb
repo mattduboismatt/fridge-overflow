@@ -21,7 +21,7 @@ class Question < ActiveRecord::Base
   has_many :responses, as: :responsive
 
   def self.highest_voted
-    self.all.sort_by {|q| q.votes.count }.reverse
+    self.all.sort_by {|q| q.votes.sum_values }.reverse
   end
 
   def self.most_recent
