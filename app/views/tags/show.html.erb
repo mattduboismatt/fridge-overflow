@@ -15,7 +15,12 @@
         <td class='center data'><%= q.votes.sum_values %></td>
         <td class='center data'><%= q.answers.count %></td>
         <td class='center data'><%= q.visit_count %></td>
-        <td class='big'><span class='q-title'><%= link_to q.title, q %></span><p>Submitted by <%= link_to q.user.username, user_path(q.user) %> on <%= q.created_at.format_date %></td>
+        <td class='big'><span class='q-title'><%= link_to q.title, q %></span><p>Submitted by <%= link_to q.user.username, user_path(q.user) %> on <%= q.created_at.format_date %>
+          <br>
+          <% q.tags.each do |tag| %>
+            <div class='tag-box compact'><%= link_to tag.name, tag_path(tag) %></div>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

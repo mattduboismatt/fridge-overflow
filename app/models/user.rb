@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   before_create :set_defaults
 
-  validates :real_name, :password_confirmation, presence: true
+  validates :real_name, presence: true
 
   validates :email,
             format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create },
