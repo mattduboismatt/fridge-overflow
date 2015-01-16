@@ -3,10 +3,11 @@ describe 'User' do
   let(:user) { User.create!(username: 'example',
                             email: 'example@test.com',
                             password: 'password',
+                            password_confirmation: 'password',
                             website: 'wwwww@eeee.com',
                             location: 'chicago',
                             age: 100,
-                            real_name: 'Seaman')}
+                            real_name: 'Sea-man')}
 
   it 'should have username attribute' do
     expect(user.username).to eq('example')
