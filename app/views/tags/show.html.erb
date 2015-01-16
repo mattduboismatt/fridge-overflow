@@ -2,7 +2,24 @@
 
 <%= render 'layouts/nav' %>
 
-<% @tag.questions.each do |q| %>
-  <%= link_to q.title, question_path(q) %>
-<% end %>
+
+
+<table id='question_index'>
+  <thead>
+    <th class='short-column'>Votes</th>
+    <th class='short-column'>Answers</th>
+    <th class='short-column'>Views</th>
+    <th class='long-column'><%= link_to "Highest-Voted", {sort: 'highest_voted'} %> --- <%= link_to "Most Recent", {sort: 'most_recent'} %> --- <%= link_to "Trending", {sort: 'trending'}%></th>
+  </thead>
+  <tbody>
+    <% @tag.questions.each do |q| %>
+      <tr>
+        <td class='center'><%= q.votes.count %></td>
+        <td class='center'><%= q.answers.count %></td>
+        <td class='center'><%= q.visit_count %></td>
+        <td class='big'><%= link_to q.title, q %><p>Submitted by <%= link_to q.user.username, user_path(q.user) %> on <%= q.created_at.format_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
