@@ -6,27 +6,23 @@
 <p><%= @question.content%></p>
 
 <!-- Question: Voting -->
-<div>
-<a href="" class="vote-arrow-up">&#9650</a>
-<a href="" class="vote-arrow-down">&#9660</a>
-</div>
-
-
-<div id='leftmenu' class='leftmenustyle'>
-  This is my div
-  <button id='buttonleft' name='Menuhide'>Hide</button>
-  <br>
-  <a href="prodsearch.php" class="classname3">Back</a>
-</div>
-<div id='leftbutton'>
-  <button name='menushow'></button>
-</div>
+<p>votes: <%= @question.votes.sum_values %></p>
+<%= link_to '&#9650'.html_safe, upvote_question_path(@question), method: :post, class: "vote-arrow-up" %>
+<%= link_to '&#9660'.html_safe, downvote_question_path(@question), method: :post, class: "vote-arrow-down" %>
 
 
 <!-- Question: Existing Comments -->
 <ul>
 <% @question.responses.each do |response| %>
-  <li><%= response.content%> - <%= response.user.username %></li>
+  <li>
+
+  <!-- Comments (Question): Voting -->
+  <p>votes: <%= response.votes.sum_values %></p>
+  <%= link_to '&#9650'.html_safe, upvote_response_path(response), method: :post, class: "vote-arrow-up" %>
+  <%= link_to '&#9660'.html_safe, downvote_response_path(response), method: :post, class: "vote-arrow-down" %>
+
+    <%= response.content%> - <%= response.user.username %>
+  </li>
 <% end %>
 </ul>
 
@@ -50,14 +46,29 @@
 <h4>Answers</h4>
 <ul>
 <% @question.answers.each do |ans| %>
-  <!-- Answer Content -->
   <li>
+    <!-- Answer Content -->
+    <%= link_to '&#10003'.html_safe, best_answer_path(ans), method: :post, class: "vote-arrow-up" %>
   <%= ans.created_at%><%= ans.content %> - <%= ans.user.username %>
   <br>
+
+  <!-- Answer: Voting -->
+  <p>votes: <%= ans.votes.sum_values %></p>
+  <%= link_to '&#9650'.html_safe, upvote_answer_path(ans), method: :post, class: "vote-arrow-up" %>
+  <%= link_to '&#9660'.html_safe, downvote_answer_path(ans), method: :post, class: "vote-arrow-down" %>
+
   <!-- Answer: Existing Comments -->
   <ul>
     <% ans.responses.each do |response| %>
-      <li><%= response.content%> - <%= response.user.username %></li>
+      <li>
+
+        <!-- Comments (Answer): Voting -->
+        <p>votes: <%= response.votes.sum_values %></p>
+        <%= link_to '&#9650'.html_safe, upvote_response_path(response), method: :post, class: "vote-arrow-up" %>
+        <%= link_to '&#9660'.html_safe, downvote_response_path(response), method: :post, class: "vote-arrow-down" %>
+
+        <%= response.content%> - <%= response.user.username %>
+      </li>
     <% end %>
   </ul>
 
