@@ -13,8 +13,13 @@
  *= require_tree .
  *= require_self
  */
-body{
+body {
   font-family: 'Montserrat', sans-serif;
+  margin: 0px;
+}
+
+.container {
+  padding: 0px 80px;
 }
 
 #header {
@@ -23,6 +28,7 @@ body{
   font-family: courier;
   border: 1px solid black;
   margin: 0px;
+  padding: 0px;
 }
 
 #header ul{
@@ -77,6 +83,15 @@ body{
 .long-column {
   width: 30%;
   background-color: grey;
+}
+
+.long-column a {
+  text-decoration: none;
+  color: #6ED32F;
+}
+
+.long-column a:hover {
+  color: #FFB2FF;
 }
 
 .center {
