@@ -1,0 +1,10 @@
+<h1 class='center'>Tags</h1>
+
+<%= render 'layouts/nav' %>
+
+<% @tags.each do |tag| %>
+  <div class='tag-box'>
+    <%= link_to tag.name, tag_path(tag) %><br>
+    <p>questions - <%= tag.questions.count %></p>
+  </div>
+<% end %>

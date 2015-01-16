@@ -1,0 +1,27 @@
+<div class='clear'><%= image_tag "logo.png",size: "45x85", class: "main_logo"  %>
+<h1 class="title_bar"><span class="logo_bar">fridge</span>overflow</h1></div>
+
+<%= render 'layouts/nav' %>
+
+<table id='question_index'>
+  <thead>
+    <th class='short-column'>Votes</th>
+    <th class='short-column'>Answers</th>
+    <th class='short-column'>Views</th>
+    <th class='long-column'><%= link_to "Highest-Voted", {sort: 'highest_voted'} %> --- <%= link_to "Most Recent", {sort: 'most_recent'} %> --- <%= link_to "Trending", {sort: 'trending'}%></th>
+  </thead>
+  <tbody>
+    <% @questions.each do |question|%>
+      <tr>
+        <td class='center data'><%= question.votes.sum_values %></td>
+        <td class='center data'><%= question.answers.count %></td>
+        <td class='center data'><%= question.visit_count %></td>
+        <td class='big'><span class='q-title'><%= link_to question.title, question %></span><p>Submitted by <%= link_to question.user.username, user_path(question.user) %> on <%= question.created_at.format_date %><br>
+          <% question.tags.each do |tag| %>
+            <div class='tag-box compact'><%= link_to tag.name, tag_path(tag) %></div>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

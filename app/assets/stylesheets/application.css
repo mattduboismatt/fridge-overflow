@@ -13,3 +13,140 @@
  *= require_tree .
  *= require_self
  */
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0px;
+}
+
+.container {
+  padding: 0px 80px;
+}
+
+#header {
+  background-color: grey;
+  color: #2E3D4C;
+  font-family: courier;
+  border: 1px solid black;
+  margin: 0px;
+  padding: 0px;
+  height: 50px;
+}
+
+#header ul{
+  list-style-type: none;
+}
+
+#header .right li {
+  float: right;
+}
+
+#header ul li{
+  display: inline-block;
+  margin-left: 2%;
+}
+
+#header .right {
+  float: right;
+  margin-right: 2%;
+}
+
+#home-page-link{
+  float: left;
+  margin-right: 50%
+}
+
+.logo_bar{
+  margin-top: -15px;
+  color: #6ED32F;
+}
+
+.main_logo{
+  margin-left: -240px;
+  float: left;
+  padding-top: 10px;
+}
+
+.title_bar{
+  font-size: 250%%;
+  display: inline-block;
+  margin-top: 48px;
+  margin-left: -190px;
+  padding-top: 10px;
+}
+
+#header a {
+  text-decoration: none;
+  color: #6ED32F;
+}
+
+
+.flash p{
+  color: red;
+}
+
+.short-column {
+  width: 5%;
+  background-color: grey;
+  color: #6ED32F;
+}
+
+.long-column {
+  width: 30%;
+  background-color: grey;
+}
+
+.long-column a {
+  text-decoration: none;
+  color: #6ED32F;
+}
+
+.long-column a:hover {
+  color: #FFB2FF;
+}
+
+.center {
+  text-align: center;
+}
+
+
+.center_main {
+  width: 500px;
+  margin: 0 auto auto;
+}
+
+.data {
+  font-size: 20px;
+}
+
+th {
+  border: 1px solid black;
+  margin: 0px;
+}
+
+
+#nav {
+  text-align: center;
+}
+
+#nav a {
+  text-decoration: none;
+  width: 200px;
+  background-color: grey;
+  padding: 5px 20px;
+  text-align: center;
+  color: white;
+  font-family: courier;
+}
+
+.q-title a {
+  text-decoration: none;
+  font-family: courier;
+  font-size: 20px;
+  color: #990000;
+}
+
+
+
+
+
+
