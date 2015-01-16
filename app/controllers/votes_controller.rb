@@ -1,6 +1,6 @@
 class VotesController < ApplicationController
 
-def create
+  def create
     if response_params[:responsible_type] == "question"
       @responsible = Question.find_by_id(response_params[:responsible_id])
     else
@@ -23,4 +23,8 @@ def create
     end
   end
 
+  # the votable object can be easily found with
+  # votable = vote.votable
+
 end
+

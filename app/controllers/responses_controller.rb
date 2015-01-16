@@ -5,6 +5,7 @@ class ResponsesController < ApplicationController
   end
 
   def create
+    # use the responsible... see below
     if response_params[:responsible_type] == "question"
       @responsible = Question.find_by_id(response_params[:responsible_id])
     else
@@ -21,6 +22,7 @@ class ResponsesController < ApplicationController
       if @response.save
         format.html { redirect_to question_path(@question, {:id => @question}), notice: 'Comment successfully posted.' }
         format.js { redirect_to question_path(@question, {:id => @question}), notice: 'Comment successfully posted.' }
+        # don't really need the format.js render, especially if its the same as the html
       else
         format.html { redirect_to question_path(@question), notice: 'Could not post comment.' }
       end
@@ -77,5 +79,10 @@ class ResponsesController < ApplicationController
   def response_params
     params.require(:response).permit(:content, :responsible_id, :responsible_type, :question_id)
   end
+
+  # shouldn't ever be setting the responadle_* fields manually.. should just do respondable: @answer because the association is already set up
+  # respondable = @answer ? @answer: @question
+  # .merge(respondable: respondable, user: current_user)
+
 
 end

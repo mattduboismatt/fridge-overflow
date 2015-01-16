@@ -32,4 +32,9 @@ class User < ActiveRecord::Base
     self.slug ||= self.username.downcase.gsub(/[^a-z0-9\s]/i, '').split(' ').join('-')
   end
 
+  # add a to_params method to set up slug url
+  # def to_params
+  #    slug
+  # end
+
 end

@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  # add a before_action :set_answer and :set_question because you will generally always need to use the question and an answer belongs to a question anyway
 
   def create
     @answer = Answer.new(answer_params)

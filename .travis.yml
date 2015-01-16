@@ -5,3 +5,5 @@ addons:
   postgresql: "9.3"
 before_script:
   - psql -c 'create database fridge_overflow_test;' -U postgres
+
+# don't need to include addons: postgresql for version 9.3 because it's automatic now

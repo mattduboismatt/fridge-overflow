@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150115221303) do
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
   add_index "answers", ["user_id", "question_id"], name: "index_answers_on_user_id_and_question_id", using: :btree
-
+  # second index is the 'composite'.. important for performance
   create_table "questions", force: true do |t|
     t.string   "title"
     t.string   "slug"
@@ -80,6 +80,10 @@ ActiveRecord::Schema.define(version: 20150115221303) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  # should index username/email because you are looking up users by these often
+  # wherever you have a 'where' clause on an attribute, that attribute should have an index
+  # but if using 'name: like... ' index won't work.. unless set up with % at the end
 
   create_table "votes", force: true do |t|
     t.integer  "vote_value"

@@ -49,6 +49,14 @@ class Question < ActiveRecord::Base
     self.update_attribute(:visit_count, self.visit_count + 1)
   end
 
+
+  # SEARCH
+  # def self.search_by_name(name_part)
+  #     where("name like '%{name_part}'")
+  # end
+  # check out the .to_json docs for info on how to map
+
+
   private
   def set_defaults
     self.slug ||= self.title.downcase.gsub(/[^a-z0-9\s]/i, '').split(' ').join('-')
