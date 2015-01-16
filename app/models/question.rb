@@ -3,6 +3,18 @@ include ApplicationHelper
 class Question < ActiveRecord::Base
   before_create :set_defaults
 
+  validates :title,
+            presence: true,
+            length: {minimum: 10, maximum: 100}
+
+  validates :visit_count,
+            numericality: true
+
+  validates :content,
+            presence: true,
+            length: {minimum: 10, maximum: 2000}
+
+
   belongs_to :user
   has_many :answers
   has_one :best_answer, class_name: 'Answer'

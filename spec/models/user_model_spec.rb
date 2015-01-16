@@ -7,7 +7,7 @@ describe 'User' do
                             website: 'wwwww@eeee.com',
                             location: 'chicago',
                             age: 100,
-                            real_name: 'Sea-man')}
+                            real_name: 'Seaman')}
 
   it 'should have username attribute' do
     expect(user.username).to eq('example')
