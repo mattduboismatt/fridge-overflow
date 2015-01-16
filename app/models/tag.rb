@@ -4,5 +4,5 @@ class Tag < ActiveRecord::Base
 
   validates :name,
             presence: true,
-            length: {minimum: 2, maximum: 10}
+            length: {minimum: 2, maximum: 20}
 end

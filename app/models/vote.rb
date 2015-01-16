@@ -4,6 +4,7 @@ class Vote < ActiveRecord::Base
 
   validates :vote_value,
             presence: true,
-            numericality: true
+            numericality: true,
+            inclusion: { in: [-1,1] }
 
 end

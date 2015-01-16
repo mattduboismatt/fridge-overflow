@@ -7,9 +7,6 @@ class Question < ActiveRecord::Base
             presence: true,
             length: {minimum: 10, maximum: 100}
 
-  validates :visit_count,
-            numericality: true
-
   validates :content,
             presence: true,
             length: {minimum: 10, maximum: 2000}
