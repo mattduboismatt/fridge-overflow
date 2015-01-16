@@ -18,7 +18,7 @@ users = rand(5..15).times.map do
     email: Faker::Internet.email,
     location: Faker::Address.city,
     website: Faker::Internet.url,
-    age: rand(15..99),
+    age: rand(18..99),
     profile_picture: rand(1..10).to_s,
   })
 end
@@ -40,9 +40,12 @@ answers = 30.times.map do
 end
 bests = questions.map {|q| q.best_answer = answers.sample }
 
+foods = %w(bacon cheese spill spicy human-flesh leftovers duck spaghetti squash seaman greek sushi plum banana orange meat sniff mold dirt oven cronut cookie cake veggies)
+
 # create tags for each question
-20.times do
-  questions.sample.tags.create!(name: Faker::Lorem.word)
+30.times do
+  tag = Tag.find_or_create_by!(name: foods.sample)
+  questions.sample.tags << tag
 end
 
 # create responses for some questions and answers
