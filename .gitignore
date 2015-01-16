@@ -15,3 +15,4 @@
 /log/*.log
 /tmp
 .DS_Store
+#can move .DS_Store to global ignore in your home directory
