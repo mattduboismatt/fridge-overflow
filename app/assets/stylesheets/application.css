@@ -29,15 +29,25 @@ body {
   border: 1px solid black;
   margin: 0px;
   padding: 0px;
+  height: 50px;
 }
 
 #header ul{
   list-style-type: none;
 }
 
+#header .right li {
+  float: right;
+}
+
 #header ul li{
   display: inline-block;
   margin-left: 2%;
+}
+
+#header .right {
+  float: right;
+  margin-right: 2%;
 }
 
 #home-page-link{
@@ -68,6 +78,7 @@ body {
   text-decoration: none;
   color: #6ED32F;
 }
+
 
 .flash p{
   color: red;
