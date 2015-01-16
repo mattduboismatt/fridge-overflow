@@ -12,10 +12,10 @@
   <tbody>
     <% @tag_questions.each do |q| %>
       <tr>
-        <td class='center'><%= q.votes.count %></td>
-        <td class='center'><%= q.answers.count %></td>
-        <td class='center'><%= q.visit_count %></td>
-        <td class='big'><%= link_to q.title, q %><p>Submitted by <%= link_to q.user.username, user_path(q.user) %> on <%= q.created_at.format_date %></td>
+        <td class='center data'><%= q.votes.count %></td>
+        <td class='center data'><%= q.answers.count %></td>
+        <td class='center data'><%= q.visit_count %></td>
+        <td class='big'><span class='q-title'><%= link_to q.title, q %></span><p>Submitted by <%= link_to q.user.username, user_path(q.user) %> on <%= q.created_at.format_date %></td>
       </tr>
     <% end %>
   </tbody>

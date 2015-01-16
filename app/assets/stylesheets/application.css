@@ -53,6 +53,10 @@
   text-align: center;
 }
 
+.data {
+  font-size: 20px;
+}
+
 th {
   border: 1px solid black;
   margin: 0px;
@@ -73,6 +77,12 @@ th {
   font-family: courier;
 }
 
+.q-title a {
+  text-decoration: none;
+  font-family: courier;
+  font-size: 20px;
+  color: #990000;
+}
 
 
 
