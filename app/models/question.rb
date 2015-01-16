@@ -11,6 +11,18 @@ class Question < ActiveRecord::Base
   has_many :votes, as: :votable
   has_many :responses, as: :responsive
 
+  def self.highest_voted
+    self.all.sort_by {|q| q.votes.count }.reverse
+  end
+
+  def self.most_recent
+    self.all.sort_by {|q| q.created_at }.reverse
+  end
+
+  def self.trending
+    self.all.sort_by {|q| q.visit_count }.reverse
+  end
+
   def tag_names
     tags.pluck(:name).join(", ")
   end

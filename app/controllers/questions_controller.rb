@@ -3,7 +3,13 @@ class QuestionsController < ApplicationController
   before_action :redirect_to_root, unless: :'logged_in?', only: [:new]
 
   def index
-    @questions = Question.all
+    if params[:sort] == 'most_recent'
+      @questions = Question.most_recent
+    elsif params[:sort] == 'trending'
+      @questions = Question.trending
+    else
+      @questions = Question.highest_voted
+    end
   end
 
   def show

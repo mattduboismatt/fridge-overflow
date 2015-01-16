@@ -59,6 +59,22 @@ th {
 }
 
 
+#nav {
+  text-align: center;
+}
+
+#nav a {
+  text-decoration: none;
+  width: 200px;
+  background-color: grey;
+  padding: 5px 20px;
+  text-align: center;
+  color: white;
+  font-family: courier;
+}
+
+
+
 
 
 

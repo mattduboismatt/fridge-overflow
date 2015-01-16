@@ -1,12 +1,13 @@
-<h1>FRIDGE OVERFLOW</h1><hr>
-<%= link_to 'Ask Question', new_question_path %><hr>
+<h1 class='center'>FRIDGE OVERFLOW</h1>
+
+<%= render 'layouts/nav' %>
 
 <table id='question_index'>
   <thead>
     <th class='short-column'>Votes</th>
     <th class='short-column'>Answers</th>
     <th class='short-column'>Views</th>
-    <th class='long-column'><%= link_to "Highest-Voted" %> --- <%= link_to "Most Recent" %> --- <%= link_to "Trending" %></th>
+    <th class='long-column'><%= link_to "Highest-Voted", {sort: 'highest_voted'} %> --- <%= link_to "Most Recent", {sort: 'most_recent'} %> --- <%= link_to "Trending", {sort: 'trending'}%></th>
   </thead>
   <tbody>
     <% @questions.each do |question|%>
