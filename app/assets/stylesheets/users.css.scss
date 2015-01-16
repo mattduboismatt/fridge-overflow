@@ -5,7 +5,6 @@
 
 .user-form {
   border: 1px solid black;
-  width: 30%;
 }
 
 #header {
@@ -29,4 +28,52 @@
 
 .user-box a {
   text-decoration: none;
+}
+
+#profile {
+  width: 30%;
+  float: left;
+  margin-left: 50px;
+}
+
+#profile h1 {
+  margin: 2px;
+}
+
+#summary {
+  float: left;
+  margin-left: 50px;
+  width: 50%;
+}
+
+#summary h1 {
+  margin: 2px;
+}
+
+.summary-box {
+  border: 1px solid grey;
+  margin-bottom: 10px;
+}
+
+.summary-box ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.summary-box p, li, h3 {
+  margin: 0px;
+}
+
+.summary-box h3 {
+  font-family: courier;
+  font-size: 20px;
+  color: #990000;
+  padding: 5px 0px;
+  background-color: #CCFFCC;
+}
+
+.summary-box li {
+  border-bottom: 1px solid grey;
+  padding-bottom: 2px;
 }

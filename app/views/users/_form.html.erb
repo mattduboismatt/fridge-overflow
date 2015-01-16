@@ -10,42 +10,44 @@
       </ul>
     </div>
   <% end %>
-
-  <div class='user-form'>
-    <div class="field">
-      <%= f.label :username, "Enter username" %>
-      <%= f.text_field :username %>
-    </div>
-    <div class="field">
-      <%= f.label :real_name, "Enter full name" %>
-      <%= f.text_field :real_name %>
-    </div>
-    <div class="field">
-      <%= f.label :email, "Enter email" %>
-      <%= f.email_field :email %>
-    </div>
-    <div class="field">
-      <%= f.label :password, "Enter password" %>
-      <%= f.password_field :password %>
-    </div>
-    <div class="field">
-      <%= f.label :password_confirmation, "Confirm password" %>
-      <%= f.password_field :password_confirmation %>
-    </div>
-    <div class="field">
-      <%= f.label :website, "Enter website" %>
-      <%= f.text_field :website %>
-    </div>
-    <div class="field">
-      <%= f.label :location, "Enter location" %>
-      <%= f.text_field :location %>
-    </div>
-    <div class="field">
-      <%= f.label :age, "Enter age" %>
-      <%= f.text_field :age %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Finish" %>
+  <div id='profile'>
+    <h1 class='center'>Profile</h1>
+    <div class='user-form'>
+      <div class="field">
+        <%= f.label :username, "Enter username" %>
+        <%= f.text_field :username %>
+      </div>
+      <div class="field">
+        <%= f.label :real_name, "Enter full name" %>
+        <%= f.text_field :real_name %>
+      </div>
+      <div class="field">
+        <%= f.label :email, "Enter email" %>
+        <%= f.email_field :email %>
+      </div>
+      <div class="field">
+        <%= f.label :password, "Enter password" %>
+        <%= f.password_field :password %>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation, "Confirm password" %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+      <div class="field">
+        <%= f.label :website, "Enter website" %>
+        <%= f.text_field :website %>
+      </div>
+      <div class="field">
+        <%= f.label :location, "Enter location" %>
+        <%= f.text_field :location %>
+      </div>
+      <div class="field">
+        <%= f.label :age, "Enter age" %>
+        <%= f.text_field :age %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Finish" %>
+      </div>
     </div>
   </div>
 <% end %>
