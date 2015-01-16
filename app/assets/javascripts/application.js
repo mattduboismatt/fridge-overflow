@@ -16,7 +16,7 @@
 $(document).ready(function() {
   $('#nav a').hover(
     function() {
-      $(this).css('background-color', '#E68A00')
+      $(this).css('background-color', '#6ED32F')
     }, function() {
       $(this).css('background-color', 'grey')
   });

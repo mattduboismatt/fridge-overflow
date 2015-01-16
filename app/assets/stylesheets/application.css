@@ -13,9 +13,12 @@
  *= require_tree .
  *= require_self
  */
+body{
+  font-family: 'Montserrat', sans-serif;
+}
 
 #header {
-  background-color: #99CCFF;
+  background-color: grey;
   color: #2E3D4C;
   font-family: courier;
   border: 1px solid black;
@@ -36,21 +39,49 @@
   margin-right: 50%
 }
 
+.logo_bar{
+  margin-top: -15px;
+  color: #6ED32F;
+
+}
+
+.title_bar{
+  margin-top: 85px;
+  font-size: 250%%;
+
+
+}
+
+#header a {
+  text-decoration: none;
+  color: #6ED32F;
+}
 
 .flash p{
   color: red;
 }
 
+.main_logo{
+  float: left;
+  margin-left: -500px;
+  text-align: center;
+  margin-top: 40px;
+}
+
 .short-column {
   width: 5%;
+  background-color: grey;
+  color: #6ED32F;
 }
 
 .long-column {
   width: 30%;
+  background-color: grey;
 }
 
 .center {
   text-align: center;
+  margin-left: -300px;
 }
 
 .data {
@@ -85,6 +116,7 @@ th {
 }
 
 
+<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
 
 
