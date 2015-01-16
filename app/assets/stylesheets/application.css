@@ -48,14 +48,20 @@ body {
 .logo_bar{
   margin-top: -15px;
   color: #6ED32F;
+}
 
+.main_logo{
+  margin-left: -240px;
+  float: left;
+  padding-top: 10px;
 }
 
 .title_bar{
-  margin-top: 85px;
   font-size: 250%%;
-
-
+  display: inline-block;
+  margin-top: 48px;
+  margin-left: -190px;
+  padding-top: 10px;
 }
 
 #header a {
@@ -65,13 +71,6 @@ body {
 
 .flash p{
   color: red;
-}
-
-.main_logo{
-  float: left;
-  margin-left: -500px;
-  text-align: center;
-  margin-top: 40px;
 }
 
 .short-column {
@@ -96,7 +95,12 @@ body {
 
 .center {
   text-align: center;
-  margin-left: -300px;
+}
+
+
+.center_main {
+  width: 500px;
+  margin: 0 auto auto;
 }
 
 .data {
