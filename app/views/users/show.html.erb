@@ -2,16 +2,62 @@
 
 <%= render 'layouts/nav' %>
 
-<h1>Profile</h1>
-<div class='user-form'>
-  <p><strong>Username: </strong><%= @user.username %></p>
-  <p><strong>Full name: </strong><%= @user.real_name %></p>
-  <p><strong>Email: </strong><%= @user.email %></p>
-  <p><strong>Website: </strong><%= @user.website %></p>
-  <p><strong>Location: </strong><%= @user.location %></p>
-  <p><strong>Age: </strong><%= @user.age %></p>
+
+<div id='profile'>
+  <h1 class='center'>Profile</h1>
+  <div class='user-form'>
+    <p><strong>Username: </strong><%= @user.username %></p>
+    <p><strong>Full name: </strong><%= @user.real_name %></p>
+    <p><strong>Email: </strong><%= @user.email %></p>
+    <p><strong>Website: </strong><%= @user.website %></p>
+    <p><strong>Location: </strong><%= @user.location %></p>
+    <p><strong>Age: </strong><%= @user.age %></p>
+  </div>
+  <%= link_to 'Edit profile', edit_user_path(@user) %>
 </div>
 
-<%= link_to 'Edit profile', edit_user_path(@user) %>
+<div id='summary'>
+  <h1 class='center'>Summary</h1>
+  <% if @user.answers.any? %>
+    <div class='summary-box'>
+      <h3><%= @user.questions.count%> Questions</h3>
+      <ul>
+        <% @user.questions.most_recent.each do |question| %>
+          <li><%= link_to question.title, question %><p><%= question.created_at.format_date %></p></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if @user.answers.any? %>
+    <div class='summary-box'>
+      <h3><%= @user.answers.count%> Answers</h3>
+      <ul>
+        <% @user.answers.each do |answer| %>
+          <li><%= link_to answer.content, answer.question %><p><%= answer.created_at.format_date %></p></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if @user.responses.any? %>
+    <div class='summary-box'>
+      <h3><%= @user.responses.count%> Comments</h3>
+      <ul>
+        <% @user.responses.each do |response| %>
+          <li><%= link_to response.content, response.responsive %><p><%= response.created_at.format_date %></p></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if @user.votes.any? %>
+    <div class='summary-box'>
+      <h3><%= @user.votes.count%> Votes</h3>
+      <ul>
+        <% @user.votes.each do |vote| %>
+          <li><%= link_to vote.votable.content, vote.votable %><p><%= vote.created_at.format_date %></p></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
 
 
