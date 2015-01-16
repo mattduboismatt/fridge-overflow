@@ -1,32 +1,81 @@
 <!-- Question Content -->
 <h2><%= @question.title %></h2>
 <p><%= @question.content%></p>
+
+<!-- Question: Existing Comments -->
+<ul>
+<% @question.responses.each do |response| %>
+  <li><%= response.content%> - <%= response.user.username %></li>
+<% end %>
+</ul>
+
 <!-- Question: Add Comment -->
-<a id="addComment" href="/organizations/new">add a comment</a>
+<button class="addComment" data-id="question">add a comment
+  <div class="commentBox">
+   <%= form_for Response.new do |f| %>
+    <%= f.hidden_field :question_id, value: @question.id %>
+    <%= f.hidden_field :responsible_id, value: @question.id %>
+    <%= f.hidden_field :responsible_type, value: "question" %>
+     <p>
+       <%= f.label :content, "New comment" %><br/>
+       <%= f.text_area :content %>
+     </p>
+     <p><%= f.submit "Add comment" %></p>
+   <% end %>
+  </div>
+</button>
+
 
 
 <!-- Question's Answers -->
 <h4>Answers</h4>
 <ul>
 <% @question.answers.each do |ans| %>
+  <!-- Answer Content -->
   <li>
-  <%= ans.created_at%><%= ans.content %> - <%= ans.user %>
+  <%= ans.created_at%><%= ans.content %> - <%= ans.user.username %>
   <br>
+  <!-- Answer: Existing Comments -->
+  <ul>
+    <% ans.responses.each do |response| %>
+      <li><%= response.content%> - <%= response.user.username %></li>
+    <% end %>
+  </ul>
+
+  <br>
+  <!-- Answer: Add Comment -->
+  <button class="addComment">add a comment
+    <div class="commentBox">
+     <%= form_for Response.new do |f| %>
+      <%= f.hidden_field :question_id, value: @question.id %>
+      <%= f.hidden_field :responsible_id, value: ans.id %>
+      <%= f.hidden_field :responsible_type, value: "answer" %>
+       <p>
+         <%= f.label :content, "New comment" %><br/>
+         <%= f.text_area :content %>
+       </p>
+       <p><%= f.submit "Add comment" %></p>
+     <% end %>
+    </div>
+  </button>
+
+
+
   </li>
 <% end %>
 </ul>
 <!-- Create A New Answer -->
 <h4>Your Answer</h4>
 
-<%= form_for(@answer) do |f| %>
+  <%= form_for(@answer) do |f| %>
 
-<%= f.hidden_field :question_id, value: @question.id %>
+  <%= f.hidden_field :question_id, value: @question.id %>
 
-<%= f.label :content %>
-<br>
-<%= f.text_field :content, size: 200 %>
-<br>
+  <%= f.label :content %>
+  <br>
+  <%= f.text_field :content, size: 200 %>
+  <br>
 
-<%= f.submit "Post Your Answer" %>
+  <%= f.submit "Post Your Answer" %>
 
 <% end %>
