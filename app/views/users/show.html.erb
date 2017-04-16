@@ -1,0 +1,17 @@
+<h1 class='center'><%= @user.username %></h1>
+
+<%= render 'layouts/nav' %>
+
+<h1>Profile</h1>
+<div class='user-form'>
+  <p><strong>Username: </strong><%= @user.username %></p>
+  <p><strong>Full name: </strong><%= @user.real_name %></p>
+  <p><strong>Email: </strong><%= @user.email %></p>
+  <p><strong>Website: </strong><%= @user.website %></p>
+  <p><strong>Location: </strong><%= @user.location %></p>
+  <p><strong>Age: </strong><%= @user.age %></p>
+</div>
+
+<%= link_to 'Edit profile', edit_user_path(@user) %>
+
+

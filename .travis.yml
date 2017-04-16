@@ -1,0 +1,7 @@
+language: ruby
+rvm:
+  - 2.0.0
+addons:
+  postgresql: "9.3"
+before_script:
+  - psql -c 'create database fridge_overflow_test;' -U postgres

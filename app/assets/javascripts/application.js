@@ -12,5 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+$(document).ready(function() {
+  $('#nav a').hover(
+    function() {
+      $(this).css('background-color', '#E68A00')
+    }, function() {
+      $(this).css('background-color', 'grey')
+  });
+});

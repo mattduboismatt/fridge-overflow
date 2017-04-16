@@ -1,0 +1,23 @@
+<h1 class='center'>FRIDGE OVERFLOW</h1>
+
+<%= render 'layouts/nav' %>
+
+<table id='question_index'>
+  <thead>
+    <th class='short-column'>Votes</th>
+    <th class='short-column'>Answers</th>
+    <th class='short-column'>Views</th>
+    <th class='long-column'><%= link_to "Highest-Voted", {sort: 'highest_voted'} %> --- <%= link_to "Most Recent", {sort: 'most_recent'} %> --- <%= link_to "Trending", {sort: 'trending'}%></th>
+  </thead>
+  <tbody>
+    <% @questions.each do |question|%>
+      <tr>
+        <td class='center'><%= question.votes.count %></td>
+        <td class='center'><%= question.answers.count %></td>
+        <td class='center'><%= question.visit_count %></td>
+        <td class='big'><%= link_to question.title, question %><p>Submitted by <%= link_to question.user.username, user_path(question.user) %> on <%= question.created_at.format_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
